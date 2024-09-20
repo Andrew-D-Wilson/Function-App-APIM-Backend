@@ -1,0 +1,50 @@
+[
+    {
+        "name": "HelloWorldGet",
+        "backendFunctionName": "HelloWorld",
+        "rewriteUrl": "/HelloWorld",
+        "properties": {
+            "displayName": "Hello World GET",
+            "method": "GET",
+            "urlTemplate": "/HWGET",
+            "description": "Hello World GET",
+            "templateParameters": [],
+            "request": {
+                "queryParameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false
+                    }
+                ],
+                "headers": []
+            },
+            "responses": [
+                {
+                    "statusCode": 200
+                }
+            ]
+        }
+    },
+    {
+        "name": "HelloWorldPost",
+        "backendFunctionName": "HelloWorld",
+        "rewriteUrl": "/HelloWorld",
+        "properties": {
+            "displayName": "Hello World POST",
+            "method": "POST",
+            "urlTemplate": "/HWPOST",
+            "description": "Hello World POST",
+            "templateParameters": [],
+            "request": {
+                "queryParameters": [],
+                "headers": []
+            },
+            "responses": [
+                {
+                    "statusCode": 200
+                }
+            ]
+        }
+    }
+]
