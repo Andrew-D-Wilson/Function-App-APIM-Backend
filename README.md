@@ -32,7 +32,7 @@ This repository contains configurable and secure methods in setting up the front
       2. Build both the [Bicep Template](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimInstance.azuredeploy.bicep) and [Bicep Parameter File](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimInstance.azuredeploy.bicepparam).
       3. Deploy the APIM Instance Template to Azure.
    2. Deploy the APIM API with the recently deployed Function as the Backend.
-      1. Update the [Function App APIM API Bicep Parameters from their defaults](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPI.azuredeploy.bicepparam)
+      1. Update the [Function App APIM API Bicep Parameters from their defaults](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPI.azuredeploy.bicepparam) and make sure these changes line up in the API operations configuration [config file](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimApiConfigurations/helloWorldApiOperationsConfiguration.json)
       2. Build both the [Bicep Template](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPI.azuredeploy.bicep) and [Bicep Parameter File](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPI.azuredeploy.bicepparam).
       3. Deploy the Function App APIM API Template to Azure.
 
