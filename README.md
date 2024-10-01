@@ -12,7 +12,11 @@
 [badge_license]: https://img.shields.io/github/license/Andrew-D-Wilson/Function-App-APIM-Backend?style=for-the-badge
 [link_repo]: https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend
 
-This repository contains configurable and secure methods in setting up the front-to-backend routing in APIM for Azure Function Apps. 
+This repository contains configurable and secure methods in setting up the front-to-backend routing in APIM for Azure Function Apps.
+1. Using Function Key and Bicep Configuration
+   - See Blog Post for more details: [Azure API Management | Function App Backend](https://andrewilson.co.uk/post/2024/10/function-app-apim-backend/)
+2. Using Function App Easy Auth and Configuration through Bicep
+   - Coming Soon
 ## Getting started
 ### 1: Function Key and Bicep Configuration
 
