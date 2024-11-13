@@ -1,0 +1,19 @@
+
+<!-- API ALL OPERATIONS SCOPE -->
+<policies>
+    <inbound>
+        <base />
+        <set-backend-service id="functionapp-backend-policy" backend-id="__apiName__" />
+        <set-header name="Ocp-Apim-Subscription-Key" exists-action="delete" />
+        <include-fragment fragment-id="MIAuthFrag" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>

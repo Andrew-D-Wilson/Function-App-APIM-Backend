@@ -1,0 +1,16 @@
+<!-- API OPERATION SCOPE -->
+<policies>
+    <inbound>
+        <base />
+        <rewrite-uri template="__uri__" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
