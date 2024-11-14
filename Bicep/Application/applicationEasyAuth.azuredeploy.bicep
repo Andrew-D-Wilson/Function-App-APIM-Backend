@@ -39,6 +39,9 @@ var applicationFunctionAppName = '${applicationPrefixName}${env}func'
 
 var isProduction = env == 'prod'
 
+@description('Role Definition Id for the Key Vault Secrets User role')
+var keyVaultSecretsUserRoleDefId = '4633458b-17de-408a-b874-0445c86b69e6'
+
 // ** Resources **
 // ***************
 
@@ -121,6 +124,9 @@ resource applicationFunctionAppDeploy 'Microsoft.Web/sites@2023-12-01' = {
     Environment: env
     Version: deployment().properties.template.contentVersion
   }
+  identity: {
+    type: 'SystemAssigned'
+  }
   kind: 'functionapp'
   properties: {
     serverFarmId: funcAppServicePlanDeploy.id
@@ -138,6 +144,17 @@ resource applicationFunctionAppDeploy 'Microsoft.Web/sites@2023-12-01' = {
       WEBSITE_CONTENTSHARE: funcStorageAccountDeploy.name
       MICROSOFT_PROVIDER_AUTHENTICATION_SECRET: '@Microsoft.KeyVault(VaultName=${applicationKeyVaultDeploy.name};SecretName=${vaultFunctionAppRegSecret.name})'
     }
+  }
+}
+
+@description('Create the RBAC for the Function App to Read the Secret from Key Vault')
+resource applicationFunctionAppRBACWithKV 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(applicationKeyVaultDeploy.id, applicationFunctionAppDeploy.id, keyVaultSecretsUserRoleDefId)
+  scope: vaultFunctionAppRegSecret
+  properties: {
+    principalId: applicationFunctionAppDeploy.identity.principalId
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', keyVaultSecretsUserRoleDefId)
+    principalType: 'ServicePrincipal'
   }
 }
 
