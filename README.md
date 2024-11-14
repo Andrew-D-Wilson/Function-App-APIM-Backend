@@ -16,7 +16,7 @@ This repository contains configurable and secure methods in setting up the front
 1. Using Function Key and Bicep Configuration
    - See Blog Post for more details: [Azure API Management | Function App Backend](https://andrewilson.co.uk/post/2024/10/function-app-apim-backend/)
 2. Using Function App Easy Auth and Configuration through Bicep
-   - Coming Soon
+   - See Blog Post for more details: [Easy Auth | Function App with Azure API Management](https://andrewilson.co.uk/post/2024/11/function-app-easy-auth-apim/)
 ## Getting started
 ### 1: Function Key and Bicep Configuration.
 
