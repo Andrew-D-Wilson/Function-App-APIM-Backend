@@ -18,7 +18,7 @@ This repository contains configurable and secure methods in setting up the front
 2. Using Function App Easy Auth and Configuration through Bicep
    - Coming Soon
 ## Getting started
-### 1: Function Key and Bicep Configuration
+### 1: Function Key and Bicep Configuration.
 
 1. Application Deployment
    1. Deploy the Application Services into Azure
@@ -44,8 +44,27 @@ You will now be in a position to call your APIM API which will be using the Func
 
 ** This example also demonstrates having multiple APIM Operations pointing to the same Azure Function exposing multiple Method Operations i.e. GET | POST etc.
 
-### 2: Using Function App Easy Auth and Configuration through Bicep. (Coming Soon)
+### 2: Using Function App Easy Auth and Configuration through Bicep.
+1. Application Deployment
+   1. Configure the Function App to Use [Microsoft Entra sign-in](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-configuration).
+   2. Deploy the Application Services into Azure
+      1. Update the [Application Bicep Parameters from their defaults](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/Application/applicationEasyAuth.azuredeploy.bicepparam)
+      2. Build both the [Bicep Template](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/Application/applicationEasyAuth.azuredeploy.bicep) and [Bicep Parameter File](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/Application/applicationEasyAuth.azuredeploy.bicepparam).
+      3. Deploy the Application Template to Azure.
+   3. Deploy the demo [Function](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/tree/main/Application) to the Function App you deployed into Azure in step 1 but setting AuthorizationLevel to Anonymous.
+3. APIM and API Deployment
+   1. Deploy an APIM Instance into Azure
+      1. Update the [APIM Instance Bicep Parameters from their defaults](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimInstance.azuredeploy.bicepparam)
+      2. Build both the [Bicep Template](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimInstance.azuredeploy.bicep) and [Bicep Parameter File](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimInstance.azuredeploy.bicepparam).
+      3. Deploy the APIM Instance Template to Azure.
+   2. Deploy the APIM API with the recently deployed Function as the Backend.
+      1. Update the [Function App APIM API Bicep Parameters from their defaults](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPIEasyAuth.azuredeploy.bicepparam) and make sure these changes line up in the API operations configuration [config file](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/apimApiConfigurations/helloWorldApiOperationsConfiguration.json)
+      2. Build both the [Bicep Template](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPIEasyAuth.azuredeploy.bicep) and [Bicep Parameter File](https://github.com/Andrew-D-Wilson/Function-App-APIM-Backend/blob/main/Bicep/API/functionAppApimAPIEasyAuth.azuredeploy.bicepparam).
+      3. Deploy the Function App APIM API Template to Azure.
 
+You will now be in a position to call your APIM API which will be using the Function App as its backend.
+
+** This example also demonstrates having multiple APIM Operations pointing to the same Azure Function exposing multiple Method Operations i.e. GET | POST etc.
 ## Author
 👤 Andrew Wilson
 
